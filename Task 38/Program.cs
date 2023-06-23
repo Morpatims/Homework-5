@@ -1,0 +1,28 @@
+﻿Console.Clear();
+double[] GetRandomArray(int size, double minValue, double maxValue)
+{
+    double[] result = new double[size];
+    for (int i = 0; i < size; i++)
+    {
+        result[i] = new Random().NextDouble() * (maxValue - minValue + 1) + minValue;
+    }
+
+    return result;
+}
+
+void MinMax(double[] array)
+{
+    double min = array[0];
+    double max = array[0];
+    for (int i = 1; i < array.Length; i++)
+    {
+        if (array[i] < min) min = array[i];
+        if (array[i] > max) max = array[i];
+    }
+    Console.WriteLine($"Minimum value: {min:f2}");
+    Console.WriteLine($"Maximum value: {max:f2}");
+    Console.WriteLine($":The difference between them {max - min:f2}");
+}
+double[] arr = GetRandomArray(20, -100, 100);
+Console.WriteLine(String.Join(" ", arr));
+MinMax(arr);
